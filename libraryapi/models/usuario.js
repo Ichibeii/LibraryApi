@@ -1,47 +1,36 @@
 const { DataTypes } = require('sequelize');
 const sequelize = require('../config/database');
-const Emprestimo = require('./emprestimo');
 
-const Livro = sequelize.define('Livro', {
-  LivroId: {
+const Usuario = sequelize.define('Usuario', {
+  UsuarioId: {
     type: DataTypes.INTEGER,
     primaryKey: true,
     autoIncrement: true,
     allowNull: false,
   },
-  titulo: {
+  nome: {
     type: DataTypes.STRING,
     allowNull: false,
   },
-  autor: {
+  endereco: {
     type: DataTypes.STRING,
     allowNull: false,
   },
-  genero: {
+  email: {
     type: DataTypes.STRING,
     allowNull: false,
   },
-  anoPublicacao: {
-    type: DataTypes.INTEGER,
+  telefone: {
+    type: DataTypes.STRING,
     allowNull: false,
   },
-  Emprestimo_EmprestimoId: {
+  emprestimosAtuais: {
     type: DataTypes.INTEGER,
-    primaryKey: true,
-    allowNull: false,
-  },
-  Emprestimo_Usuario_UsuarioId: {
-    type: DataTypes.INTEGER,
-    primaryKey: true,
     allowNull: false,
   },
 }, {
-  tableName: 'Livro',
+  tableName: 'Usuario',
   timestamps: false,
 });
 
-Livro.belongsTo(Emprestimo, {
-  foreignKey: 'Emprestimo_EmprestimoId',
-});
-
-module.exports = Livro;
+module.exports = Usuario;

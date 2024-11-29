@@ -1,4 +1,4 @@
-const Livro = require('../models/livro');  // Importando o modelo 'Livro'
+const Livro = require('../models/livro');
 
 exports.getAllLivros = async (req, res) => {
   try {
@@ -37,9 +37,8 @@ exports.createLivro = async (req, res) => {
   try {
     const { LivroId, titulo, autor, genero, anoPublicacao, Emprestimo_EmprestimoId, Emprestimo_Usuario_UsuarioId } = req.body;
 
-    // Criando o livro
     const novoLivro = await Livro.create({
-      LivroId,  // Pode omitir se for autoIncrement
+      LivroId,
       titulo,
       autor,
       genero,
@@ -103,7 +102,7 @@ exports.deleteLivro = async (req, res) => {
     }
 
     await livro.destroy();
-    res.status(204).send();  // Livro deletado com sucesso
+    res.status(204).send();
   } catch (error) {
     console.error('Erro ao deletar livro:', error);
     res.status(500).json({ error: error.message });
