@@ -10,6 +10,7 @@ var usersRouter = require('./routes/users');
 var app = express();
 
 const livroRoutes = require('./routes/livros');
+const usuarioRoutes = require('./routes/usuarios');
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -22,6 +23,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/livros', livroRoutes);
+app.use('/usuarios', usuarioRoutes);
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 
@@ -40,5 +42,20 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
+const sequelize = require('./config/database');
+const Usuario = require('./models/usuario');
+const Emprestimo = require('./models/emprestimo');
+const Livro = require('./models/livro');
+const UsuariosComEmprestimosPendentes = require('./models/usuariosComEmprestimosPendentes');
+const LivrosMaisEmprestados = require('./models/livrosMaisEmprestados');
+
+sequelize.sync({ force: false })
+  .then(() => {
+    console.log('Modelos sincronizados com sucesso!');
+  })
+  .catch((err) => {
+    console.error('Erro ao sincronizar os modelos:', err);
+  });
 
 module.exports = app;
