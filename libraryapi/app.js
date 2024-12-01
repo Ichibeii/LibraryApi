@@ -1,20 +1,30 @@
+require('dotenv').config();
 var createError = require('http-errors');
 var express = require('express');
 var bodyParser = require('body-parser');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+const rateLimit = require('express-rate-limit');
+
+// Definir o limite de requisições
+const limiter = rateLimit({
+  windowMs: 15 * 60 * 1000, // 15 minutos
+  max: 100, // Limita o número de requisições para 100 por IP
+  message: 'Limite de requisições excedido. Tente novamente mais tarde.',
+});
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
-
-var app = express();
 
 const usuariosRoutes = require('./routes/usuarios');
 const livrosRoutes = require('./routes/livros');
 const emprestimoRoutes = require('./routes/emprestimo');
 const livrosMaisEmprestadosRoutes = require('./routes/livrosMaisEmprestados');
 const usuariosComPendenciasRoutes = require('./routes/usuariosComPendencias');
+const authRoutes = require('./routes/auth');
+
+var app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -26,12 +36,15 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(limiter);
 
 app.use('/usuarios', usuariosRoutes);
 app.use('/livros', livrosRoutes);
 app.use('/emprestimos', emprestimoRoutes);
 app.use('/livros-mais-emprestados', livrosMaisEmprestadosRoutes);
 app.use('/usuarios-com-pendencias', usuariosComPendenciasRoutes);
+app.use('/auth', authRoutes);
+
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 
