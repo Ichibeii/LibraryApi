@@ -1,7 +1,8 @@
 {
   "name": "libraryapi",
-  "version": "0.0.0",
-  "private": true,
+  "version": "1.0.0",
+  "description": "API para gerenciamento de bibliotecas",
+  "main": "app.js",
   "scripts": {
     "start": "node ./bin/www",
     "dev": "nodemon ./bin/www",
@@ -35,5 +36,10 @@
     "globals": "^15.12.0",
     "nodemon": "^3.1.7",
     "prettier": "^3.3.3"
-  }
+  },
+  "authors": {
+    "names": "Allan Reymond, Leandro De Souza, Rafaela Guedes, Amanda Oliveira, Pedro Silva, Everson Padilha",
+    "roles": "Scrum Master, Configuration Manager, Documenter, Documenter, Developer, Developer"
+  },
+  "license": "CC0-1.0"
 }
