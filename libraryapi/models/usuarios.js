@@ -1,8 +1,8 @@
 const { DataTypes } = require('sequelize');
 const sequelize = require('../config/database');
 
-const UsuariosComEmprestimosPendentes = sequelize.define('UsuariosComEmprestimosPendentes', {
-  UsuarioEmprestimoId: {
+const usuarios = sequelize.define('usuarios', {
+  id_usuario: {
     type: DataTypes.INTEGER,
     primaryKey: true,
     autoIncrement: true,
@@ -12,29 +12,26 @@ const UsuariosComEmprestimosPendentes = sequelize.define('UsuariosComEmprestimos
     type: DataTypes.STRING,
     allowNull: false,
   },
+  endereco: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
   email: {
     type: DataTypes.STRING,
+    unique: true,
     allowNull: false,
   },
   telefone: {
     type: DataTypes.STRING,
     allowNull: false,
   },
-  LivroId: {
-    type: DataTypes.STRING,
-    allowNull: false,
-  },
-  dataEmprestimo: {
+  data_cadastro: {
     type: DataTypes.DATE,
-    allowNull: false,
-  },
-  dataDevolucao: {
-    type: DataTypes.DATE,
-    allowNull: false,
+    defaultValue: DataTypes.NOW,
   },
 }, {
-  tableName: 'UsuariosComEmprestimosPendentes',
+  tableName: 'usuarios',
   timestamps: false,
 });
 
-module.exports = UsuariosComEmprestimosPendentes;
+module.exports = usuarios;

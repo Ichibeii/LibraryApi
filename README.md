@@ -5,7 +5,7 @@ Um projeto de gerenciamento de biblioteca que facilita o controle de livros e em
 
 ---
 
-## Mapa Mental
+## Mapa mental
 
 <div align="center">
   <img src="https://github.com/user-attachments/assets/706d4b52-0f2c-43b6-a52b-a4189a61d855" alt="Mapa Mental" width="700px" style="border-radius: 10px; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);">
@@ -13,7 +13,7 @@ Um projeto de gerenciamento de biblioteca que facilita o controle de livros e em
 
 ---
 
-## Diagrama Banco de Dados
+## Diagrama banco de dados
 
 <div align="center">
   <img src="https://github.com/user-attachments/assets/90fc4fbc-9114-4aad-b3f7-cdfb052be50f" alt="Diagrama Banco de Dados" width="700px" style="border-radius: 10px; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);">
@@ -21,7 +21,7 @@ Um projeto de gerenciamento de biblioteca que facilita o controle de livros e em
 
 ---
 
-## Diagrama De Classes
+## Diagrama de classes
 
 <div align="center">
   <img src="https://github.com/user-attachments/assets/a63a92b6-acd6-4164-a254-aa38703ec61c" alt="Diagrama de Classes" width="700px" style="border-radius: 10px; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);">
@@ -33,6 +33,14 @@ Um projeto de gerenciamento de biblioteca que facilita o controle de livros e em
 
 <div align="center">
   <img src="https://github.com/user-attachments/assets/2979bf49-2212-445c-b0cf-14144b310e7b" alt="Fluxograma" width="500px" style="border-radius: 10px; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);">
+</div>
+
+---
+
+## Estrutura analítica
+
+<div align="center">
+  <img src="https://github.com/user-attachments/assets/c66a1e2c-b41e-451e-8207-d242ecb23664" alt="Estrutura Analítica" width="700px" style="border-radius: 10px; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);">
 </div>
 
 ---
