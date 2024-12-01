@@ -1,31 +1,22 @@
-const Livro = require('../models/livro');
+const livros = require('../models/livros');
 
+// Obter todos os livros
 exports.getAllLivros = async (req, res) => {
   try {
-    const livros = await Livro.findAll();
-    res.json(livros);
+    const todosLivros = await livros.findAll();
+    res.json(todosLivros);
   } catch (error) {
     console.error('Erro ao buscar livros:', error);
     res.status(500).json({ error: error.message });
   }
 };
 
+// Obter livro por ID
 exports.getLivroById = async (req, res) => {
   try {
-    const { livroId, emprestimoId, usuarioId } = req.params;
-
-    const livro = await Livro.findOne({
-      where: {
-        LivroId: livroId,
-        Emprestimo_EmprestimoId: emprestimoId,
-        Emprestimo_Usuario_UsuarioId: usuarioId
-      }
-    });
-
-    if (!livro) {
-      return res.status(404).json({ message: 'Livro não encontrado' });
-    }
-
+    const { id_livro } = req.params;
+    const livro = await livros.findByPk(id_livro);
+    if (!livro) return res.status(404).json({ message: 'Livro não encontrado' });
     res.json(livro);
   } catch (error) {
     console.error('Erro ao buscar livro:', error);
@@ -33,20 +24,11 @@ exports.getLivroById = async (req, res) => {
   }
 };
 
+// Criar um novo livro
 exports.createLivro = async (req, res) => {
   try {
-    const { LivroId, titulo, autor, genero, anoPublicacao, Emprestimo_EmprestimoId, Emprestimo_Usuario_UsuarioId } = req.body;
-
-    const novoLivro = await Livro.create({
-      LivroId,
-      titulo,
-      autor,
-      genero,
-      anoPublicacao,
-      Emprestimo_EmprestimoId,
-      Emprestimo_Usuario_UsuarioId
-    });
-
+    const { titulo, autor, genero, ano_publicacao, quantidade_total, quantidade_disponivel } = req.body;
+    const novoLivro = await livros.create({ titulo, autor, genero, ano_publicacao, quantidade_total, quantidade_disponivel });
     res.status(201).json(novoLivro);
   } catch (error) {
     console.error('Erro ao criar livro:', error);
@@ -54,30 +36,15 @@ exports.createLivro = async (req, res) => {
   }
 };
 
+// Atualizar um livro
 exports.updateLivro = async (req, res) => {
   try {
-    const { livroId, emprestimoId, usuarioId } = req.params;
-    const { titulo, autor, genero, anoPublicacao } = req.body;
+    const { id_livro } = req.params;
+    const { titulo, autor, genero, ano_publicacao, quantidade_total, quantidade_disponivel } = req.body;
+    const livro = await livros.findByPk(id_livro);
+    if (!livro) return res.status(404).json({ message: 'Livro não encontrado' });
 
-    const livro = await Livro.findOne({
-      where: {
-        LivroId: livroId,
-        Emprestimo_EmprestimoId: emprestimoId,
-        Emprestimo_Usuario_UsuarioId: usuarioId
-      }
-    });
-
-    if (!livro) {
-      return res.status(404).json({ message: 'Livro não encontrado' });
-    }
-
-    await livro.update({
-      titulo,
-      autor,
-      genero,
-      anoPublicacao
-    });
-
+    await livro.update({ titulo, autor, genero, ano_publicacao, quantidade_total, quantidade_disponivel });
     res.json(livro);
   } catch (error) {
     console.error('Erro ao atualizar livro:', error);
@@ -85,21 +52,12 @@ exports.updateLivro = async (req, res) => {
   }
 };
 
+// Deletar um livro
 exports.deleteLivro = async (req, res) => {
   try {
-    const { livroId, emprestimoId, usuarioId } = req.params;
-
-    const livro = await Livro.findOne({
-      where: {
-        LivroId: livroId,
-        Emprestimo_EmprestimoId: emprestimoId,
-        Emprestimo_Usuario_UsuarioId: usuarioId
-      }
-    });
-
-    if (!livro) {
-      return res.status(404).json({ message: 'Livro não encontrado' });
-    }
+    const { id_livro } = req.params;
+    const livro = await livros.findByPk(id_livro);
+    if (!livro) return res.status(404).json({ message: 'Livro não encontrado' });
 
     await livro.destroy();
     res.status(204).send();
