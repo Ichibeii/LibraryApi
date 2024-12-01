@@ -16,7 +16,7 @@ Um projeto de gerenciamento de biblioteca que facilita o controle de livros e em
 ## Diagrama banco de dados
 
 <div align="center">
-  <img src="https://github.com/user-attachments/assets/90fc4fbc-9114-4aad-b3f7-cdfb052be50f" alt="Diagrama Banco de Dados" width="700px" style="border-radius: 10px; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);">
+  <img src="https://github.com/user-attachments/assets/94e09af5-e6c7-4604-970b-d7f999317478" alt="Diagrama Banco de Dados" width="700px" style="border-radius: 10px; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);">
 </div>
 
 ---
