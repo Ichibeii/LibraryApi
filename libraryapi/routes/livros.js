@@ -3,9 +3,9 @@ const livroController = require('../controllers/livroController');
 const router = express.Router();
 
 router.get('/', livroController.getAllLivros);
-router.get('/:livroId/:emprestimoId/:usuarioId', livroController.getLivroById);
+router.get('/:id_livro', livroController.getLivroById);
 router.post('/', livroController.createLivro);
-router.put('/:livroId/:emprestimoId/:usuarioId', livroController.updateLivro);
-router.delete('/:livroId/:emprestimoId/:usuarioId', livroController.deleteLivro);
+router.put('/:id_livro', livroController.updateLivro);
+router.delete('/:id_livro', livroController.deleteLivro);
 
 module.exports = router;
