@@ -32,7 +32,7 @@ Um projeto de gerenciamento de biblioteca que facilita o controle de livros e em
 ## Fluxograma
 
 <div align="center">
-  <img src="https://github.com/user-attachments/assets/2979bf49-2212-445c-b0cf-14144b310e7b" alt="Fluxograma" width="500px" style="border-radius: 10px; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);">
+  <img src="https://github.com/user-attachments/assets/4abc489c-5051-4d55-b429-45635c7a6456" alt="Fluxograma" width="500px" style="border-radius: 10px; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);">
 </div>
 
 ---
