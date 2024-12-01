@@ -12,7 +12,9 @@ var app = express();
 
 const usuariosRoutes = require('./routes/usuarios');
 const livrosRoutes = require('./routes/livros');
-const emprestimoRoutes = require('./routes/emprestimos');
+const emprestimoRoutes = require('./routes/emprestimo');
+const livrosMaisEmprestadosRoutes = require('./routes/livrosMaisEmprestados');
+const usuariosComPendenciasRoutes = require('./routes/usuariosComPendencias');
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -25,15 +27,13 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/usuarios', usuarioRoutes);
-app.use('/livros', livroRoutes);
+app.use('/usuarios', usuariosRoutes);
+app.use('/livros', livrosRoutes);
 app.use('/emprestimos', emprestimoRoutes);
+app.use('/livros-mais-emprestados', livrosMaisEmprestadosRoutes);
+app.use('/usuarios-com-pendencias', usuariosComPendenciasRoutes);
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-
-app.listen(3000, () => {
-  console.log('Servidor rodando na porta 3000');
-});
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -56,7 +56,7 @@ const Usuario = require('./models/usuarios');
 const Emprestimo = require('./models/emprestimos');
 const Livro = require('./models/livros');
 const UsuariosComEmprestimosPendentes = require('./models/usuarios_com_pendencias');
-const LivrosMaisEmprestados = require('./models/livrosMaisEmprestados');
+const LivrosMaisEmprestados = require('./models/livros_mais_emprestados');
 
 sequelize.sync({ force: false })
   .then(() => {

@@ -42,4 +42,7 @@ const emprestimos = sequelize.define('emprestimos', {
   timestamps: false,
 });
 
+emprestimos.belongsTo(usuarios, { foreignKey: 'id_usuario' });
+emprestimos.belongsTo(livros, { foreignKey: 'id_livro' });
+
 module.exports = emprestimos;

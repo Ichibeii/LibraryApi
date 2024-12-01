@@ -3,9 +3,9 @@ const emprestimoController = require('../controllers/emprestimoController');
 const router = express.Router();
 
 router.get('/', emprestimoController.getAllEmprestimos);
-router.get('/:emprestimoId', emprestimoController.getEmprestimoById);
+router.get('/:id_emprestimo', emprestimoController.getEmprestimoById);
 router.post('/', emprestimoController.createEmprestimo);
-router.put('/:emprestimoId', emprestimoController.updateEmprestimo);
-router.delete('/:emprestimoId', emprestimoController.deleteEmprestimo);
+router.put('/:id_emprestimo', emprestimoController.updateEmprestimo);
+router.delete('/:id_emprestimo', emprestimoController.deleteEmprestimo);
 
 module.exports = router;
