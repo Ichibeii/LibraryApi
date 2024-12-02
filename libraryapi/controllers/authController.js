@@ -13,7 +13,7 @@ exports.register = async (req, res) => {
   }
 
   try {
-    const { nome, endereco, email, telefone, senha } = req.body;
+    const { nome, endereco, email, telefone, senha, role = 'usuario' } = req.body;
 
     // Verifica se o e-mail já está cadastrado
     const usuarioExistente = await usuarios.findOne({ where: { email } });
@@ -22,8 +22,19 @@ exports.register = async (req, res) => {
     }
 
     // Cria o novo usuário
-    const novoUsuario = await usuarios.create({ nome, endereco, email, telefone, senha });
-    res.status(201).json({ message: 'Usuário registrado com sucesso', usuario: novoUsuario });
+    const novoUsuario = await usuarios.create({ nome, endereco, email, telefone, senha, role });
+    res.status(201).json({
+      message: 'Usuário registrado com sucesso',
+      usuario: {
+        id_usuario: novoUsuario.id_usuario,
+        nome: novoUsuario.nome,
+        endereco: novoUsuario.endereco,
+        email: novoUsuario.email,
+        telefone: novoUsuario.telefone,
+        role: novoUsuario.role,
+        data_cadastro: novoUsuario.data_cadastro,
+      },
+    });
   } catch (error) {
     console.error('Erro no registro:', error);
     res.status(500).json({ error: error.message });
