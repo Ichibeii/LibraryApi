@@ -12,7 +12,7 @@ router.post(
     body('senha')
       .isLength({ min: 6 })
       .withMessage('A senha deve ter pelo menos 6 caracteres'),
-    body('telefone').isLength({ min: 10, max: 15 }).withMessage('Telefone deve ter entre 10 e 15 caracteres'),
+    body('telefone').isLength({ min: 9, max: 15 }).withMessage('Telefone deve ter entre 9 e 15 caracteres'),
   ],
   authController.register
 );

@@ -9,8 +9,8 @@ const validarAtualizacaoUsuario = [
   body('nome').notEmpty().withMessage('O nome é obrigatório'),
   body('email').isEmail().withMessage('E-mail inválido'),
   body('telefone')
-    .isLength({ min: 10, max: 15 })
-    .withMessage('Telefone deve ter entre 10 e 15 caracteres'),
+    .isLength({ min: 9, max: 15 })
+    .withMessage('Telefone deve ter entre 9 e 15 caracteres'),
 ];
 
 // Rota para pegar todos os usuários (apenas para usuários autenticados)
