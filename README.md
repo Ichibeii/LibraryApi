@@ -45,6 +45,13 @@ Um projeto de gerenciamento de biblioteca que facilita o controle de livros e em
 
 ---
 
+## Documentação do Projeto
+
+Este projeto inclui duas documentações importantes para o desenvolvimento:
+
+1. [Códigos Git usado](https://github.com/user-attachments/files/17972312/Lista.de.codigos.Git.usados.pdf) : Este documento contém o guia detalhado sobre como configurar e trabalhar com o repositório.
+2. [Ferramentas, Frameworks e Bibliotecas usado](https://github.com/user-attachments/files/17972320/Lista.de.ferramentas.bibliotecas.e.frameworks.usados.pdf) : Lista de tecnologias utilizadas no projeto, com instruções de instalação e configuração.
+
 ## Como baixar o repositório
 
 Para baixar o repositório, execute o seguinte comando no terminal:
