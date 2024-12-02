@@ -24,7 +24,7 @@ Um projeto de gerenciamento de biblioteca que facilita o controle de livros e em
 ## Diagrama de classes
 
 <div align="center">
-  <img src="https://github.com/user-attachments/assets/a63a92b6-acd6-4164-a254-aa38703ec61c" alt="Diagrama de Classes" width="700px" style="border-radius: 10px; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);">
+  <img src="https://github.com/user-attachments/assets/5272e53b-d4c4-4e6d-8b13-fbd5cacba2ae" alt="Diagrama de Classes" width="700px" style="border-radius: 10px; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);">
 </div>
 
 ---
